@@ -13,6 +13,7 @@ export default {
         },
         fontFamily: {
           sans: ['Instrument Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          hankenGrotesk: ['"Hanken Grotesk"', "sans-serif"],
         },
       },
     },
