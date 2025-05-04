@@ -13,9 +13,13 @@ class JobController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
+        $jobs = Job::all()->groupBy('featured');//we need different jobs as featured jobs
+
         return view('jobs.index',[
+            'featuredJobs' => $jobs[0],
             'jobs' => Job::all(),
             'tags' => Tag::all(),
         ]);
