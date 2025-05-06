@@ -19,8 +19,8 @@ class JobController extends Controller
         $jobs = Job::all()->groupBy('featured');//we need different jobs as featured jobs
 
         return view('jobs.index',[
-            'featuredJobs' => $jobs[0],
-            'jobs' => Job::all(),
+            'featuredJobs' => $jobs[0],//considering the even indexed jobs as featured jobs
+            'jobs' => $jobs[1],//considering the odd indexed jobs as normal jobs
             'tags' => Tag::all(),
         ]);
     }
