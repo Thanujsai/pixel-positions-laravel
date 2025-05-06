@@ -22,9 +22,18 @@
                 <a href="#" class="hover:text-amber-700 transition-colors duration-300">Salaries</a>
                 <a href="#" class="hover:text-amber-700 transition-colors duration-300">Companies</a>
             </div>
-            <div>
-                <a href="">Post a Job</a>
+            @auth
+                <div>
+                    <a href="/jobs/create">Post a Job</a>
+                </div>
+            @endauth
+
+            @guest
+            <div class="space-x-6 font-bold">
+                <a href="/register" class="hover:text-amber-700 transition-colors duration-300">Sign Up</a>
+                <a href="/login" class="hover:text-amber-700 transition-colors duration-300">Log In</a>
             </div>
+            @endguest
         </nav>
 
         <main class="mt-10 max-w-[986px] mx-auto">
