@@ -90,6 +90,11 @@ return [
             'driver' => 'octane',
         ],
 
+        'memory' => [
+            'driver' => 'array',
+        ],
+
+
     ],
 
     /*

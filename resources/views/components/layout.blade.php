@@ -22,9 +22,24 @@
                 <a href="#" class="hover:text-amber-700 transition-colors duration-300">Salaries</a>
                 <a href="#" class="hover:text-amber-700 transition-colors duration-300">Companies</a>
             </div>
-            <div>
-                <a href="">Post a Job</a>
+            @auth
+                <div class="space-x-6 font-bold flex">
+                    <a href="/jobs/create" class="hover:text-amber-700 transition-colors duration-300">Post a Job</a>
+                    <form method = "POST" action="/logout">
+                        @csrf
+                        @method('DELETE')
+                        <button class="hover:text-amber-700 transition-colors duration-300 cursor-pointer">Log Out</button>
+                    </form>
+
+                </div>
+            @endauth
+
+            @guest
+            <div class="space-x-6 font-bold">
+                <a href="/register" class="hover:text-amber-700 transition-colors duration-300">Sign Up</a>
+                <a href="/login" class="hover:text-amber-700 transition-colors duration-300">Log In</a>
             </div>
+            @endguest
         </nav>
 
         <main class="mt-10 max-w-[986px] mx-auto">
