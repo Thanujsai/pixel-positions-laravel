@@ -15,8 +15,9 @@ class SessionController extends Controller
     public function store() {
         //validate
         $attributes = request()->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
+            'email' => ['required', 'email'],//the field here is the name of the input field, example 'email' here is the name of the input field of the view <x-forms.input name="email" label="Email" required />
+
+            'password' => ['required'],//similar to the above <x-forms.input name="password" label="Password" type="password" required />
         ]);
 
         //attempt to login
