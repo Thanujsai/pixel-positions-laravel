@@ -23,8 +23,14 @@
                 <a href="#" class="hover:text-amber-700 transition-colors duration-300">Companies</a>
             </div>
             @auth
-                <div>
-                    <a href="/jobs/create">Post a Job</a>
+                <div class="space-x-6 font-bold flex">
+                    <a href="/jobs/create" class="hover:text-amber-700 transition-colors duration-300">Post a Job</a>
+                    <form method = "POST" action="/logout">
+                        @csrf
+                        @method('DELETE')
+                        <button class="hover:text-amber-700 transition-colors duration-300 cursor-pointer">Log Out</button>
+                    </form>
+
                 </div>
             @endauth
 

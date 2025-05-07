@@ -11,7 +11,10 @@ class SearchController extends Controller
     {
         //dd(request('q'));//q is from the forms
 
-        $jobs = Job::whereRaw('LOWER(title) LIKE ?', ['%' . strtolower(request('q')) . '%'])->get();
+        $jobs = Job::query()
+            ->with(['employer', 'tags'])
+            ->whereRaw('LOWER(title) LIKE ?', ['%' . strtolower(request('q')) . '%'])
+            ->get();
 
         // dd($jobs);
         return view('results',['jobs' => $jobs]);
