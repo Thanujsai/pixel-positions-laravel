@@ -12,7 +12,7 @@ Route::get('/jobs/create', [JobController::class, 'create'])->middleware('auth')
 Route::post('/jobs', [JobController::class, 'store'])->middleware('auth');//you need to be signed in to see this
 
 Route::get('/search', SearchController::class);//goes to _invoke method
-Route::get('/tags/{tag:name}', TagController::Class);//explicitly saying that the name of the tag is the "name" attribute of the tag in the database, if we don't do this, it will look for the id of the tag in the database
+Route::get('/tags/{tag:name}', TagController::class);//explicitly saying that the name of the tag is the "name" attribute of the tag in the database, if we don't do this, it will look for the id of the tag in the database
 
 Route::middleware('guest')->group(function() {
     Route::get('/register', [RegisteredUserController::class, 'create']);
